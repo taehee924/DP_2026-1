@@ -1,17 +1,10 @@
-// Adapter 클래스: KoreanOutlet(220V)을 Charger 인터페이스로 변환
-public class KoreanOutletAdapter implements Charger {
-
-    private KoreanOutlet koreanOutlet; // 어댑트 대상 (Adaptee)
-
-    // KoreanOutlet을 주입받아 내부에 포함
-    public KoreanOutletAdapter(KoreanOutlet koreanOutlet) {
-        this.koreanOutlet = koreanOutlet;
+public class Smartphone {
+    private Charger charger;
+    public Smartphone(Charger charger) {
+        this.charger = charger;
     }
-
-    // Charger 인터페이스의 charge()를 KoreanOutlet의 provide()로 위임
-    @Override
-    public int charge() {
-        int voltage = koreanOutlet.provide(); // 220V 반환
-        return voltage;
+    public void charge() {
+        int voltage = charger.charge();
+        System.out.println("스마트폰이 " + voltage + "V에서 충전합니다.");
     }
 }

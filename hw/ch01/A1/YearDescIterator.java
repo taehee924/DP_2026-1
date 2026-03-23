@@ -13,7 +13,10 @@ public class YearDescIterator implements Iterator<Book> {
     public YearDescIterator(BookShelf bookShelf) {
         sortedBooks = new ArrayList<>();
         for (int i = 0; i < bookShelf.getLength(); i++) {
-            sortedBooks.add(bookShelf.getBookAt(i));
+            Book book = bookShelf.getBookAt(i);
+            if(book.getGenre().equals("소설")){//소설만 추가
+            sortedBooks.add(book);
+            }
         }
         sortedBooks.sort(Comparator.comparingInt(Book::getYear).reversed());
         this.index = 0;
