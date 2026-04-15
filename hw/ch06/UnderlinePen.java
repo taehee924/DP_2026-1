@@ -1,0 +1,34 @@
+package hw.ch06;
+
+import hw.ch06.framework.Product;
+
+public class UnderlinePen implements Product {
+   private char ulchar;
+
+   public UnderlinePen(char ulchar) {
+      this.ulchar = ulchar;
+   }
+
+   public void use(String s) {
+      int ulen = s.length();
+      System.out.println(s);
+
+      for(int i = 0; i < ulen; ++i) {
+         System.out.print(this.ulchar);
+      }
+
+      System.out.println();
+   }
+
+   public Product createCopy() {
+      Product p = null;
+
+      try {
+         p = (Product)this.clone();
+      } catch (CloneNotSupportedException e) {
+         e.printStackTrace();
+      }
+
+      return p;
+   }
+}
