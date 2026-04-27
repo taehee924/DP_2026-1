@@ -1,4 +1,4 @@
-package ch05;
+package hw.ch05;
 public class Main {
     public static void main(String[] args) {
 
